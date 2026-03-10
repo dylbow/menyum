@@ -325,24 +325,26 @@ function renderApp() {
     `).join('')}
   `;
   
-  // Add 3D tilt effect to cards
-  document.querySelectorAll('.order-card, .quick-reorder-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
+  // Add 3D tilt effect to food images only
+  document.querySelectorAll('.meal-image, .quick-meal-image').forEach(img => {
+    const container = img.closest('.meal-image-container, .quick-meal-image-container');
+    
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (centerX - x) / 10;
+      const rotateX = (y - centerY) / 15;
+      const rotateY = (centerX - x) / 15;
       
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05) translateY(-10px)`;
+      img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.15)`;
     });
     
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
+    container.addEventListener('mouseleave', () => {
+      img.style.transform = '';
     });
   });
 }
