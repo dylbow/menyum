@@ -8,7 +8,7 @@ const meals = [
       "Chips + Nacho Cheese Sauce",
       "Hot Sauce Packets (4)"
     ],
-    image: "images/tb-luxe.jpg",
+    image: "images/tb-dylan.jpg",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/build-your-own-luxe-cravings-box-1"
   },
   {
@@ -20,9 +20,9 @@ const meals = [
       "Nacho Cheese Sauce",
       "Mtn Dew Baja Blast",
       "Mild Sauce Packets (3)",
-      "Nacho Cheese Doritos Locos Tacos Supreme (no shredded cheese, no sour cream)"
+      "Doritos Locos Tacos Supreme (no shredded cheese, no sour cream)"
     ],
-    image: "images/tb-dlt.jpg",
+    image: "images/tb-audrey.jpg",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/large-nacho-fries"
   },
   {
@@ -33,7 +33,7 @@ const meals = [
       "2 Sausage Egg Cheese McMuffins",
       "Extra Toasted Muffins"
     ],
-    image: "images/mc-mcmuffin.jpg",
+    image: "images/mc-dylan-breakfast.jpg",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin-with-egg.html"
   },
   {
@@ -45,7 +45,7 @@ const meals = [
       "Large Fry",
       "Large Diet Coke"
     ],
-    image: "images/mc-nuggets.jpg",
+    image: "images/mc-dylan-lunch.jpg",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-10-piece.html"
   },
   {
@@ -57,7 +57,7 @@ const meals = [
       "Hashbrown",
       "Large Dr Pepper"
     ],
-    image: "images/mc-sausage-mcmuffin.jpg",
+    image: "images/mc-audrey-breakfast.jpg",
     orderUrl: "https://www.mcdonalds.com/us/en-us/meal/sausage-mcmuffin-with-egg-meal.html"
   },
   {
@@ -69,7 +69,7 @@ const meals = [
       "Large Fry",
       "Large Dr Pepper"
     ],
-    image: "images/mc-nuggets.jpg",
+    image: "images/mc-audrey-lunch.jpg",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-10-piece.html"
   },
   {
@@ -116,8 +116,30 @@ const meals = [
       "• 2x Buratta Bacon (no buratta)",
       "9 Iron Sandwich (sub chicken for ham, no dijonase, chips for side)"
     ],
-    image: "images/postinos-audrey.jpg",
+    image: "images/postinos-audrey-1.jpg",
     orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
+  },
+  {
+    restaurant: "Jimmy John's",
+    person: "Dylan",
+    mealName: "Dylan's Jimmy John's Order",
+    items: [
+      "Jimmy Cubano",
+      "Add Jimmy Hot Peppers"
+    ],
+    image: "images/jj-dylan.jpg",
+    orderUrl: "https://www.jimmyjohns.com/menu/favorites-sandwiches/jimmy-cubano"
+  },
+  {
+    restaurant: "Jimmy John's",
+    person: "Audrey",
+    mealName: "Audrey's Jimmy John's Order",
+    items: [
+      "Italian Night Club",
+      "Extra Toasty Please!!"
+    ],
+    image: "images/jj-audrey.jpg",
+    orderUrl: "https://www.jimmyjohns.com/menu/favorites-sandwiches/italian-night-club"
   }
 ];
 
@@ -158,7 +180,7 @@ function renderApp() {
         </div>
         <div class="orders-grid">
           ${meals.map(meal => `
-            <div class="order-card" onclick="document.getElementById('btn-${meal.mealName.replace(/\s/g, '')}').click()">
+            <div class="order-card" onclick="document.getElementById('btn-${meal.mealName.replace(/[\\s']/g, '')}').click()">
               <div class="meal-image-container">
                 <img class="meal-image" src="${meal.image}" alt="${meal.mealName}" loading="lazy">
               </div>
@@ -167,7 +189,7 @@ function renderApp() {
                 <ul class="items-list">
                   ${meal.items.map(item => `<li>${item}</li>`).join('')}
                 </ul>
-                <button id="btn-${meal.mealName.replace(/\s/g, '')}" class="order-btn" onclick="event.stopPropagation(); window.open('${meal.orderUrl}', '_blank')">
+                <button id="btn-${meal.mealName.replace(/[\\s']/g, '')}" class="order-btn" onclick="event.stopPropagation(); window.open('${meal.orderUrl}', '_blank')">
                   Order Now →
                 </button>
               </div>
