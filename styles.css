@@ -162,7 +162,7 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: clamp(12px, 2vh, 20px);
+  margin-bottom: clamp(6px, 1vh, 10px);
   filter: drop-shadow(0 8px 40px rgba(0,0,0,0.3));
   animation: shimmer 4s ease-in-out infinite;
 }
