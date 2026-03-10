@@ -98,10 +98,10 @@ const meals = [
     mealName: "Dylan's Postino's Order",
     items: [
       "Bruschetta Board Pick 4:",
-      "• Fig Apple Brie",
-      "• Prosciutto Fig",
-      "• Salami Pesto",
-      "• Pepper Jam"
+      "Fig Apple Brie",
+      "Prosciutto Fig",
+      "Salami Pesto",
+      "Pepper Jam"
     ],
     image: "images/postinos-dylan.jpg",
     orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
@@ -112,8 +112,8 @@ const meals = [
     mealName: "Audrey's Postino's Order",
     items: [
       "Bruschetta Board Pick 4:",
-      "• 2x Salami Pesto",
-      "• 2x Buratta Bacon (no buratta)",
+      "2x Salami Pesto",
+      "2x Buratta Bacon (no buratta)",
       "9 Iron Sandwich (sub chicken for ham, no dijonase, chips for side)"
     ],
     image: "images/postinos-audrey-1.jpg",
@@ -330,9 +330,9 @@ function renderApp() {
     const container = img.closest('.meal-image-container, .quick-meal-image-container');
     const isBigImage = img.classList.contains('meal-image');
     
-    // Big images (main meal cards): much more subtle tilt
+    // Big images (main meal cards): extremely subtle tilt
     // Small images (quick reorder cards): moderately subtle tilt
-    const divisor = isBigImage ? 50 : 25;
+    const divisor = isBigImage ? 100 : 25;
     
     container.addEventListener('mousemove', (e) => {
       const rect = container.getBoundingClientRect();

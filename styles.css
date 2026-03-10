@@ -665,7 +665,7 @@ body::after {
 }
 
 .items-list li {
-  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.25rem);
   color: rgba(255,255,255,0.9);
   line-height: 1.8;
   padding: clamp(10px, 2vh, 14px) 0 clamp(10px, 2vh, 14px) clamp(20px, 3vw, 28px);
