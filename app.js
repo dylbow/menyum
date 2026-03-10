@@ -281,8 +281,7 @@ function renderApp() {
   app.innerHTML = `
     <div class="header">
       <div class="logo-container">
-        <img src="logo.png" alt="Menyum" class="logo-img">
-        <span class="logo-text">Menyum</span>
+        <img src="logo-full-transparent.png" alt="Menyum" class="logo-full">
       </div>
       <div class="tagline">Your Favorite Orders, Always Ready</div>
       <div class="toggle-container">
