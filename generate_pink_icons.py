@@ -14,25 +14,25 @@ def create_svg_icon():
     svg_content = '''<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
   <rect width="512" height="512" rx="110" fill="#f5d5d8"/>
   
-  <!-- M Burger Logo - Simplified burger M -->
+  <!-- M Burger Logo - Simplified burger M (BIGGER - 75% of icon space) -->
   <g transform="translate(256, 256)">
     <!-- Top bun -->
-    <ellipse cx="0" cy="-80" rx="120" ry="30" fill="#D4A574"/>
+    <ellipse cx="0" cy="-115" rx="170" ry="42" fill="#D4A574"/>
     
     <!-- M arches (like McDonald's golden arches forming an M) -->
-    <path d="M -90,-60 Q -90,-20 -90,20 L -70,20 L -70,-40 Q -70,-55 -50,-60 Q -30,-65 0,-50 Q 30,-65 50,-60 Q 70,-55 70,-40 L 70,20 L 90,20 L 90,-60 Q 90,-20 90,20 L 90,20 Q 70,-10 50,-20 Q 30,-30 0,-35 Q -30,-30 -50,-20 Q -70,-10 -90,20 Z" fill="#FFC72C"/>
+    <path d="M -130,-85 Q -130,-28 -130,28 L -100,28 L -100,-56 Q -100,-78 -72,-85 Q -43,-92 0,-72 Q 43,-92 72,-85 Q 100,-78 100,-56 L 100,28 L 130,28 L 130,-85 Q 130,-28 130,28 L 130,28 Q 100,-14 72,-28 Q 43,-42 0,-50 Q -43,-42 -72,-28 Q -100,-14 -130,28 Z" fill="#FFC72C"/>
     
     <!-- Lettuce -->
-    <rect x="-100" y="25" width="200" height="15" fill="#7CB342" rx="3"/>
+    <rect x="-145" y="35" width="290" height="22" fill="#7CB342" rx="4"/>
     
     <!-- Patty -->
-    <rect x="-110" y="45" width="220" height="25" fill="#6D4C41" rx="5"/>
+    <rect x="-160" y="63" width="320" height="36" fill="#6D4C41" rx="7"/>
     
     <!-- Cheese -->
-    <path d="M -115,72 L -105,82 L 105,82 L 115,72 Z" fill="#FFA000"/>
+    <path d="M -167,102 L -152,118 L 152,118 L 167,102 Z" fill="#FFA000"/>
     
     <!-- Bottom bun -->
-    <rect x="-120" y="85" width="240" height="20" fill="#D4A574" rx="3"/>
+    <rect x="-175" y="122" width="350" height="28" fill="#D4A574" rx="4"/>
   </g>
 </svg>'''
     
@@ -51,11 +51,11 @@ def create_png_icons():
         scale = size / 512.0
         center = size / 2
         
-        # Draw simplified M burger
+        # Draw simplified M burger (BIGGER - 75% of icon space)
         # Top bun (ellipse)
-        bun_width = int(120 * scale * 2)
-        bun_height = int(30 * scale * 2)
-        bun_top = int(center - 80 * scale)
+        bun_width = int(170 * scale * 2)
+        bun_height = int(42 * scale * 2)
+        bun_top = int(center - 115 * scale)
         draw.ellipse([
             center - bun_width/2, bun_top - bun_height/2,
             center + bun_width/2, bun_top + bun_height/2
@@ -63,51 +63,51 @@ def create_png_icons():
         
         # M arches (golden arches)
         arch_color = '#FFC72C'
-        arch_y = int(center - 40 * scale)
-        arch_height = int(60 * scale)
-        arch_width = int(40 * scale)
+        arch_y = int(center - 58 * scale)
+        arch_height = int(86 * scale)
+        arch_width = int(58 * scale)
         
         # Left arch
         draw.ellipse([
-            center - 90*scale - arch_width/2, arch_y,
-            center - 90*scale + arch_width/2, arch_y + arch_height
+            center - 130*scale - arch_width/2, arch_y,
+            center - 130*scale + arch_width/2, arch_y + arch_height
         ], fill=arch_color)
         
         # Right arch  
         draw.ellipse([
-            center + 90*scale - arch_width/2, arch_y,
-            center + 90*scale + arch_width/2, arch_y + arch_height
+            center + 130*scale - arch_width/2, arch_y,
+            center + 130*scale + arch_width/2, arch_y + arch_height
         ], fill=arch_color)
         
         # Lettuce
-        lettuce_top = int(center + 25 * scale)
+        lettuce_top = int(center + 35 * scale)
         draw.rectangle([
-            center - 100*scale, lettuce_top,
-            center + 100*scale, lettuce_top + 15*scale
+            center - 145*scale, lettuce_top,
+            center + 145*scale, lettuce_top + 22*scale
         ], fill='#7CB342')
         
         # Patty
-        patty_top = int(center + 45 * scale)
+        patty_top = int(center + 63 * scale)
         draw.rounded_rectangle([
-            center - 110*scale, patty_top,
-            center + 110*scale, patty_top + 25*scale
-        ], radius=int(5*scale), fill='#6D4C41')
+            center - 160*scale, patty_top,
+            center + 160*scale, patty_top + 36*scale
+        ], radius=int(7*scale), fill='#6D4C41')
         
         # Cheese
-        cheese_top = int(center + 72 * scale)
+        cheese_top = int(center + 102 * scale)
         draw.polygon([
-            (center - 115*scale, cheese_top),
-            (center - 105*scale, cheese_top + 10*scale),
-            (center + 105*scale, cheese_top + 10*scale),
-            (center + 115*scale, cheese_top)
+            (center - 167*scale, cheese_top),
+            (center - 152*scale, cheese_top + 16*scale),
+            (center + 152*scale, cheese_top + 16*scale),
+            (center + 167*scale, cheese_top)
         ], fill='#FFA000')
         
         # Bottom bun
-        bottom_top = int(center + 85 * scale)
+        bottom_top = int(center + 122 * scale)
         draw.rounded_rectangle([
-            center - 120*scale, bottom_top,
-            center + 120*scale, bottom_top + 20*scale
-        ], radius=int(3*scale), fill='#D4A574')
+            center - 175*scale, bottom_top,
+            center + 175*scale, bottom_top + 28*scale
+        ], radius=int(4*scale), fill='#D4A574')
         
         # Add rounded corners to the icon
         mask = Image.new('L', (size, size), 0)
