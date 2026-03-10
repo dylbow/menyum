@@ -155,14 +155,14 @@ body::after {
 
 .header {
   text-align: center;
-  padding: clamp(40px, 8vh, 80px) 20px clamp(50px, 10vh, 90px);
+  padding: clamp(20px, 4vh, 40px) 20px clamp(30px, 5vh, 50px);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: clamp(6px, 1vh, 10px);
+  margin-bottom: clamp(2px, 0.5vh, 4px);
   filter: drop-shadow(0 8px 40px rgba(0,0,0,0.3));
   animation: shimmer 4s ease-in-out infinite;
 }
@@ -192,7 +192,7 @@ body::after {
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   color: rgba(255,255,255,0.95);
   font-weight: 300;
-  margin-bottom: clamp(36px, 6vh, 60px);
+  margin-bottom: clamp(16px, 3vh, 30px);
   letter-spacing: 0.5px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
