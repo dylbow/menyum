@@ -155,7 +155,7 @@ body::after {
 
 .header {
   text-align: center;
-  padding: clamp(4px, 0.5vh, 8px) 20px clamp(8px, 1vh, 12px);
+  padding: 2px 20px 4px;
 }
 
 .logo-container {
@@ -168,7 +168,7 @@ body::after {
 }
 
 .logo-full {
-  width: clamp(100px, 18vw, 160px);
+  width: clamp(80px, 15vw, 120px);
   height: auto;
   filter: drop-shadow(0 12px 48px rgba(255,255,255,0.4));
   animation: float 6s ease-in-out infinite;
@@ -192,18 +192,18 @@ body::after {
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: rgba(255,255,255,0.95);
   font-weight: 300;
-  margin-bottom: clamp(6px, 1vh, 10px);
+  margin-bottom: 2px;
   letter-spacing: 0.5px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 
 .toggle-container {
   display: inline-flex;
-  gap: clamp(8px, 1.5vw, 14px);
+  gap: 4px;
   background: rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(50px) saturate(200%);
   -webkit-backdrop-filter: blur(50px) saturate(200%);
-  padding: clamp(5px, 1vw, 8px);
+  padding: 3px;
   border-radius: clamp(20px, 3vw, 28px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   box-shadow: 
@@ -231,7 +231,7 @@ body::after {
   background: transparent;
   border: none;
   color: rgba(255,255,255,0.75);
-  padding: clamp(14px, 2.5vw, 18px) clamp(28px, 5vw, 44px);
+  padding: 10px 24px;
   border-radius: clamp(16px, 2.5vw, 22px);
   font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: 600;
