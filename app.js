@@ -280,7 +280,10 @@ function renderApp() {
   
   app.innerHTML = `
     <div class="header">
-      <div class="logo">Menyum</div>
+      <div class="logo-container">
+        <img src="logo.png" alt="Menyum" class="logo-img">
+        <span class="logo-text">Menyum</span>
+      </div>
       <div class="tagline">Your Favorite Orders, Always Ready</div>
       <div class="toggle-container">
         <button class="toggle-btn ${activePerson === 'Dylan' ? 'active' : ''}" onclick="setActivePerson('Dylan')">
