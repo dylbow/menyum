@@ -22,7 +22,7 @@ const meals = [
       "Mild Sauce Packets (3)",
       "Doritos Locos Tacos Supreme (no shredded cheese, no sour cream)"
     ],
-    image: "images/tb-audrey.jpg",
+    image: "images/tb-audrey-v2.jpg",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/large-nacho-fries"
   },
   {
