@@ -328,6 +328,11 @@ function renderApp() {
   // Add 3D tilt effect to food images only
   document.querySelectorAll('.meal-image, .quick-meal-image').forEach(img => {
     const container = img.closest('.meal-image-container, .quick-meal-image-container');
+    const isBigImage = img.classList.contains('meal-image');
+    
+    // Big images (main meal cards): much more subtle tilt
+    // Small images (quick reorder cards): moderately subtle tilt
+    const divisor = isBigImage ? 50 : 25;
     
     container.addEventListener('mousemove', (e) => {
       const rect = container.getBoundingClientRect();
@@ -337,8 +342,8 @@ function renderApp() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = (y - centerY) / 15;
-      const rotateY = (centerX - x) / 15;
+      const rotateX = (y - centerY) / divisor;
+      const rotateY = (centerX - x) / divisor;
       
       img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.15)`;
     });
