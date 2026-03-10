@@ -143,22 +143,140 @@ const meals = [
   }
 ];
 
-let activePerson = "Dylan";
+let activePerson = localStorage.getItem('activePerson') || "Dylan";
+
+// Order history management
+function getOrderHistory() {
+  const history = localStorage.getItem('orderHistory');
+  return history ? JSON.parse(history) : [];
+}
+
+function addToOrderHistory(mealName, restaurant, person) {
+  const history = getOrderHistory();
+  const newOrder = {
+    mealName,
+    restaurant,
+    person,
+    timestamp: Date.now()
+  };
+  
+  // Add to beginning of array
+  history.unshift(newOrder);
+  
+  // Keep only last 50 orders
+  const trimmed = history.slice(0, 50);
+  localStorage.setItem('orderHistory', JSON.stringify(trimmed));
+}
+
+function getRecentOrders(person, limit = 3) {
+  return getOrderHistory()
+    .filter(order => order.person === person)
+    .slice(0, limit);
+}
+
+function getOrderCount(mealName, person) {
+  return getOrderHistory()
+    .filter(order => order.mealName === mealName && order.person === person)
+    .length;
+}
+
+function formatTimeSince(timestamp) {
+  const seconds = Math.floor((Date.now() - timestamp) / 1000);
+  
+  if (seconds < 60) return 'Just now';
+  if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+  if (seconds < 604800) return `${Math.floor(seconds / 86400)}d ago`;
+  return `${Math.floor(seconds / 604800)}w ago`;
+}
 
 function setActivePerson(person) {
   activePerson = person;
+  localStorage.setItem('activePerson', person);
   renderApp();
+}
+
+function handleOrder(meal) {
+  addToOrderHistory(meal.mealName, meal.restaurant, meal.person);
+  
+  // Create ripple effect
+  const ripple = document.createElement('div');
+  ripple.className = 'ripple';
+  document.body.appendChild(ripple);
+  
+  setTimeout(() => ripple.remove(), 1000);
+  
+  // Show toast notification
+  showToast(`Ordering ${meal.mealName}! 🎉`);
+  
+  // Open order URL
+  window.open(meal.orderUrl, '_blank');
+  
+  // Re-render to update counts
+  renderApp();
+}
+
+function showToast(message) {
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+  
+  setTimeout(() => toast.classList.add('show'), 10);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 2500);
+}
+
+function clearHistory() {
+  if (confirm('Clear all order history?')) {
+    localStorage.setItem('orderHistory', JSON.stringify([]));
+    showToast('Order history cleared! 🗑️');
+    renderApp();
+  }
 }
 
 function renderApp() {
   const app = document.getElementById('app');
   const filteredMeals = meals.filter(m => m.person === activePerson);
+  const recentOrders = getRecentOrders(activePerson, 3);
   const grouped = {};
   
   filteredMeals.forEach(meal => {
     if (!grouped[meal.restaurant]) grouped[meal.restaurant] = [];
     grouped[meal.restaurant].push(meal);
   });
+  
+  // Build quick reorder section
+  const quickReorderSection = recentOrders.length > 0 ? `
+    <div class="quick-reorder-section">
+      <div class="section-header">
+        <h2 class="section-title">⚡ Quick Reorder</h2>
+        <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+      </div>
+      <div class="quick-reorder-grid">
+        ${recentOrders.map(order => {
+          const meal = meals.find(m => m.mealName === order.mealName && m.person === order.person);
+          if (!meal) return '';
+          const count = getOrderCount(meal.mealName, meal.person);
+          return `
+            <div class="quick-reorder-card" onclick="handleOrder(${JSON.stringify(meal).replace(/"/g, '&quot;')})">
+              <div class="quick-meal-image-container">
+                <img class="quick-meal-image" src="${meal.image}" alt="${meal.mealName}" loading="lazy">
+                ${count > 1 ? `<div class="order-badge">${count}×</div>` : ''}
+              </div>
+              <div class="quick-card-content">
+                <div class="quick-meal-name">${meal.mealName}</div>
+                <div class="quick-restaurant">${meal.restaurant}</div>
+                <div class="quick-time">${formatTimeSince(order.timestamp)}</div>
+              </div>
+            </div>
+          `;
+        }).filter(Boolean).join('')}
+      </div>
+    </div>
+  ` : '';
   
   app.innerHTML = `
     <div class="header">
@@ -173,32 +291,79 @@ function renderApp() {
         </button>
       </div>
     </div>
+    
+    ${quickReorderSection}
+    
     ${Object.entries(grouped).map(([restaurant, meals]) => `
       <div class="restaurant-section">
         <div class="restaurant-header">
           <div class="restaurant-name">${restaurant}</div>
         </div>
         <div class="orders-grid">
-          ${meals.map(meal => `
-            <div class="order-card" onclick="document.getElementById('btn-${meal.mealName.replace(/[\\s']/g, '')}').click()">
-              <div class="meal-image-container">
-                <img class="meal-image" src="${meal.image}" alt="${meal.mealName}" loading="lazy">
+          ${meals.map(meal => {
+            const count = getOrderCount(meal.mealName, meal.person);
+            return `
+              <div class="order-card" onclick="handleOrder(${JSON.stringify(meal).replace(/"/g, '&quot;')})">
+                ${count > 0 ? `<div class="order-count-badge">${count}</div>` : ''}
+                <div class="meal-image-container">
+                  <img class="meal-image" src="${meal.image}" alt="${meal.mealName}" loading="lazy">
+                </div>
+                <div class="card-content">
+                  <div class="meal-title">${meal.mealName}</div>
+                  <ul class="items-list">
+                    ${meal.items.map(item => `<li>${item}</li>`).join('')}
+                  </ul>
+                  <button class="order-btn" onclick="event.stopPropagation()">
+                    Order Now →
+                  </button>
+                </div>
               </div>
-              <div class="card-content">
-                <div class="meal-title">${meal.mealName}</div>
-                <ul class="items-list">
-                  ${meal.items.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-                <button id="btn-${meal.mealName.replace(/[\\s']/g, '')}" class="order-btn" onclick="event.stopPropagation(); window.open('${meal.orderUrl}', '_blank')">
-                  Order Now →
-                </button>
-              </div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       </div>
     `).join('')}
   `;
+  
+  // Add 3D tilt effect to cards
+  document.querySelectorAll('.order-card, .quick-reorder-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05) translateY(-10px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
 }
 
+// Initialize
 renderApp();
+
+// Create floating particles
+function createParticles() {
+  const particlesContainer = document.createElement('div');
+  particlesContainer.className = 'particles';
+  document.body.appendChild(particlesContainer);
+  
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.animationDelay = `${Math.random() * 20}s`;
+    particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+    particlesContainer.appendChild(particle);
+  }
+}
+
+createParticles();
