@@ -155,20 +155,20 @@ body::after {
 
 .header {
   text-align: center;
-  padding: clamp(20px, 4vh, 40px) 20px clamp(30px, 5vh, 50px);
+  padding: clamp(4px, 0.5vh, 8px) 20px clamp(8px, 1vh, 12px);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: clamp(2px, 0.5vh, 4px);
+  margin-bottom: 0;
   filter: drop-shadow(0 8px 40px rgba(0,0,0,0.3));
   animation: shimmer 4s ease-in-out infinite;
 }
 
 .logo-full {
-  width: clamp(200px, 30vw, 400px);
+  width: clamp(100px, 18vw, 160px);
   height: auto;
   filter: drop-shadow(0 12px 48px rgba(255,255,255,0.4));
   animation: float 6s ease-in-out infinite;
@@ -189,10 +189,10 @@ body::after {
 }
 
 .tagline {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   color: rgba(255,255,255,0.95);
   font-weight: 300;
-  margin-bottom: clamp(16px, 3vh, 30px);
+  margin-bottom: clamp(6px, 1vh, 10px);
   letter-spacing: 0.5px;
   text-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
