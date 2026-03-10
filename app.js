@@ -8,7 +8,7 @@ const meals = [
       "Chips + Nacho Cheese Sauce",
       "Hot Sauce Packets (4)"
     ],
-    image: "images/tb-dylan.jpg",
+    image: "images/tb-dylan.png",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/build-your-own-luxe-cravings-box-1"
   },
   {
@@ -22,7 +22,7 @@ const meals = [
       "Mild Sauce Packets (3)",
       "Doritos Locos Tacos Supreme (no shredded cheese, no sour cream)"
     ],
-    image: "images/tb-audrey-v2.jpg",
+    image: "images/tb-audrey-v2.png",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/large-nacho-fries"
   },
   {
@@ -33,7 +33,7 @@ const meals = [
       "2 Sausage Egg Cheese McMuffins",
       "Extra Toasted Muffins"
     ],
-    image: "images/mc-dylan-breakfast.jpg",
+    image: "images/mc-dylan-breakfast.png",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin-with-egg.html"
   },
   {
@@ -45,7 +45,7 @@ const meals = [
       "Large Fry",
       "Large Diet Coke"
     ],
-    image: "images/mc-dylan-lunch.jpg",
+    image: "images/mc-dylan-lunch.png",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-10-piece.html"
   },
   {
@@ -57,7 +57,7 @@ const meals = [
       "Hashbrown",
       "Large Dr Pepper"
     ],
-    image: "images/mc-audrey-breakfast.jpg",
+    image: "images/mc-audrey-breakfast.png",
     orderUrl: "https://www.mcdonalds.com/us/en-us/meal/sausage-mcmuffin-with-egg-meal.html"
   },
   {
@@ -69,7 +69,7 @@ const meals = [
       "Large Fry",
       "Large Dr Pepper"
     ],
-    image: "images/mc-audrey-lunch.jpg",
+    image: "images/mc-audrey-lunch.png",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-10-piece.html"
   },
   {
@@ -79,7 +79,7 @@ const meals = [
     items: [
       "Tiger's Blood Rebel (Large, Iced)"
     ],
-    image: "images/db-dylan.jpg",
+    image: "images/db-dylan.png",
     orderUrl: "https://www.dutchbros.com/menu/rebel-energy-drink/tigers-blood-rebel/"
   },
   {
@@ -89,7 +89,7 @@ const meals = [
     items: [
       "Stoplight Rebel (Large, Iced, Extra Sweet)"
     ],
-    image: "images/db-audrey.jpg",
+    image: "images/db-audrey.png",
     orderUrl: "https://www.dutchbros.com/menu/rebel-energy-drink/stoplight-rebel/"
   },
   {
@@ -103,7 +103,7 @@ const meals = [
       "Salami Pesto",
       "Pepper Jam"
     ],
-    image: "images/postinos-dylan.jpg",
+    image: "images/postinos-dylan.png",
     orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
   },
   {
@@ -116,7 +116,7 @@ const meals = [
       "2x Buratta Bacon (no buratta)",
       "9 Iron Sandwich (sub chicken for ham, no dijonase, chips for side)"
     ],
-    image: "images/postinos-audrey-1.jpg",
+    image: "images/postinos-audrey-1.png",
     orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
   },
   {
@@ -127,7 +127,7 @@ const meals = [
       "Jimmy Cubano",
       "Add Jimmy Hot Peppers"
     ],
-    image: "images/jj-dylan.jpg",
+    image: "images/jj-dylan.png",
     orderUrl: "https://www.jimmyjohns.com/menu/favorites-sandwiches/jimmy-cubano"
   },
   {
@@ -138,7 +138,7 @@ const meals = [
       "Italian Night Club",
       "Extra Toasty Please!!"
     ],
-    image: "images/jj-audrey.jpg",
+    image: "images/jj-audrey.png",
     orderUrl: "https://www.jimmyjohns.com/menu/favorites-sandwiches/italian-night-club"
   }
 ];
