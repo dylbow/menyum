@@ -4,9 +4,9 @@ const meals = [
     person: "Dylan",
     mealName: "Dylan's Taco Bell Order",
     items: [
-      "Nachos/Chips + Nacho Cheese Sauce",
-      "Hot Sauce Packets (4)",
-      "Luxe Cravings Box"
+      "Luxe Cravings Box",
+      "Chips + Nacho Cheese Sauce",
+      "Hot Sauce Packets (4)"
     ],
     image: "images/tb-luxe.jpg",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/build-your-own-luxe-cravings-box-1"
@@ -20,7 +20,7 @@ const meals = [
       "Nacho Cheese Sauce",
       "Mtn Dew Baja Blast",
       "Mild Sauce Packets (3)",
-      "Nacho Cheese Doritos Locos Tacos Supreme"
+      "Nacho Cheese Doritos Locos Tacos Supreme (no shredded cheese, no sour cream)"
     ],
     image: "images/tb-dlt.jpg",
     orderUrl: "https://www.tacobell.com/food/deals-and-combos/large-nacho-fries"
@@ -30,9 +30,8 @@ const meals = [
     person: "Dylan",
     mealName: "Dylan's McDonald's Breakfast",
     items: [
-      "Sausage Egg McMuffin",
-      "Extra Toasted Muffins",
-      "2 Sausage Patties"
+      "2 Sausage Egg Cheese McMuffins",
+      "Extra Toasted Muffins"
     ],
     image: "images/mc-mcmuffin.jpg",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin-with-egg.html"
@@ -59,7 +58,7 @@ const meals = [
       "Large Dr Pepper"
     ],
     image: "images/mc-sausage-mcmuffin.jpg",
-    orderUrl: "https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin-with-egg-meal.html"
+    orderUrl: "https://www.mcdonalds.com/us/en-us/meal/sausage-mcmuffin-with-egg-meal.html"
   },
   {
     restaurant: "McDonald's",
@@ -72,6 +71,53 @@ const meals = [
     ],
     image: "images/mc-nuggets.jpg",
     orderUrl: "https://www.mcdonalds.com/us/en-us/product/chicken-mcnuggets-10-piece.html"
+  },
+  {
+    restaurant: "Dutch Bros",
+    person: "Dylan",
+    mealName: "Dylan's Dutch Bros Order",
+    items: [
+      "Tiger's Blood Rebel (Large, Iced)"
+    ],
+    image: "images/db-dylan.jpg",
+    orderUrl: "https://www.dutchbros.com/menu/rebel-energy-drink/tigers-blood-rebel/"
+  },
+  {
+    restaurant: "Dutch Bros",
+    person: "Audrey",
+    mealName: "Audrey's Dutch Bros Order",
+    items: [
+      "Stoplight Rebel (Large, Iced, Extra Sweet)"
+    ],
+    image: "images/db-audrey.jpg",
+    orderUrl: "https://www.dutchbros.com/menu/rebel-energy-drink/stoplight-rebel/"
+  },
+  {
+    restaurant: "Postino's",
+    person: "Dylan",
+    mealName: "Dylan's Postino's Order",
+    items: [
+      "Bruschetta Board Pick 4:",
+      "• Fig Apple Brie",
+      "• Prosciutto Fig",
+      "• Salami Pesto",
+      "• Pepper Jam"
+    ],
+    image: "images/postinos-dylan.jpg",
+    orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
+  },
+  {
+    restaurant: "Postino's",
+    person: "Audrey",
+    mealName: "Audrey's Postino's Order",
+    items: [
+      "Bruschetta Board Pick 4:",
+      "• 2x Salami Pesto",
+      "• 2x Buratta Bacon (no buratta)",
+      "9 Iron Sandwich (sub chicken for ham, no dijonase, chips for side)"
+    ],
+    image: "images/postinos-audrey.jpg",
+    orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
   }
 ];
 
