@@ -315,7 +315,7 @@ function renderApp() {
                   <ul class="items-list">
                     ${meal.items.map(item => `<li>${item}</li>`).join('')}
                   </ul>
-                  <button class="order-btn" onclick="event.stopPropagation()">
+                  <button class="order-btn">
                     Order Now →
                   </button>
                 </div>
