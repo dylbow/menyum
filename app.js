@@ -109,15 +109,27 @@ const meals = [
   {
     restaurant: "Postino's",
     person: "Audrey",
-    mealName: "Audrey's Postino's Order",
+    mealName: "Audrey's Bruschetta Board",
     items: [
       "Bruschetta Board Pick 4:",
       "2x Salami Pesto",
-      "2x Buratta Bacon (no buratta)",
-      "9 Iron Sandwich (sub chicken for ham, no dijonase, chips for side)"
+      "2x Buratta Bacon (no buratta)"
     ],
     image: "images/postinos-audrey-1.png",
     orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa"
+  },
+  {
+    restaurant: "Postino's",
+    person: "Audrey",
+    mealName: "Audrey's 9 Iron Sandwich",
+    items: [
+      "9 Iron Sandwich:",
+      "Substitute chicken for ham",
+      "No dijonaise",
+      "Chips for side"
+    ],
+    image: "images/postinos-audrey-2.png",
+    orderUrl: "https://www.postino.com/menu?jumpTo=section-56uSwOUhwcvkQgoWIEQiTa%2C2section-57B0QycU3fFmFa5U17m6J3"
   },
   {
     restaurant: "Jimmy John's",
