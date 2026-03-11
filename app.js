@@ -148,13 +148,12 @@ const meals = [
     mealName: "Audrey's Jimmy John's Order",
     items: [
       "#9 Italian Night Club (Toasted)",
-      "Extra Toasty Please!!",
       "No Provolone Cheese",
       "EZ Onions",
       "No Mayonnaise",
       "No Oil & Vinegar",
       "Reg Jimmy Peppers",
-      "*sometimes Regular Jimmy Chips"
+      "*sometimes Regular Jimmy Chips for a crunch!"
     ],
     image: "images/jj-audrey.png",
     orderUrl: "https://www.jimmyjohns.com/menu/favorites-sandwiches/italian-night-club"
