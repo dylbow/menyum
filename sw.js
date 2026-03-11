@@ -1,4 +1,4 @@
-const CACHE_NAME = 'menyum-v3-pink-20260310';
+const CACHE_NAME = 'menyum-v4-20260310-2022';
 const urlsToCache = [
   '.',
   'index.html',
